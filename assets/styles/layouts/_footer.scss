@@ -1,0 +1,23 @@
+.content-info {
+	background: #222222;
+	padding: 15px;
+	span {
+		display: inline-block;
+		margin-top: 5px;
+	}
+	span , a {
+		color: #fff;
+	}
+	a i {
+		font-size: 25px;
+	}
+}
+@media only screen and (min-width: 991px) {
+	.content-info {
+		.col-md-6 {
+			&:last-child {
+				text-align:right;
+			}
+		}
+	}
+}

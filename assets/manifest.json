@@ -22,6 +22,6 @@
     }
   },
   "config": {
-    "devUrl": "http://localhost:3000/me"
+    "devUrl": "http://localhost/me"
   }
 }

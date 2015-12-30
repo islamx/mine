@@ -19,6 +19,40 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+        jQuery(function ($) {
+          function changeColor(selector, colors, time) {
+                /* Params:
+                 * selector: string,
+                 * colors: array of color strings,
+                 * every: integer (in mili-seconds)
+                 */
+                var curCol = 0,
+                    timer = setInterval(function () {
+                        if (curCol === colors.length) curCol = 0;
+                        $(selector).css("background-color", colors[curCol]);
+                        curCol++;
+                    }, time);
+            }
+            $(window).load(function () {
+                changeColor(".header-wrapper", ["#c3bd58", "#58c37e", "#c36c58", "#94c358"], 5000);
+            });
+        });
+      //
+      $(function() {
+        $('.nav a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
+            }
+          }
+        });
+      });
+      //
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
